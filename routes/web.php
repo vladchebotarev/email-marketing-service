@@ -11,6 +11,24 @@
 |
 */
 
+use App\Mail\MilanoMailCampaign;
+use Illuminate\Support\Facades\Mail;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/send', function() {
+    $when = Carbon\Carbon::now()->addSeconds(20);
+
+    Mail::to('vlad.bmx4@gmail.com')
+        ->later($when, new MilanoMailCampaign());
+        //->queue(new MilanoMailCampaign());
+
+    return 'Mail send';
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
