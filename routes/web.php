@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/phpInfo', function() {
-    phpinfo();
-});
-
 Route::get('/send', function() {
     $when = Carbon\Carbon::now()->addSeconds(20);
 
