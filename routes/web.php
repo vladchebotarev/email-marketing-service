@@ -19,6 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/send', 'SendController@index')->name('send');
+Route::get('/mail', function () {
+    return (new App\Mail\MilanoMailCampaign())->render();
+});
 
 Auth::routes();
 

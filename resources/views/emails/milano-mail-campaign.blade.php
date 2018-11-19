@@ -47,7 +47,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <td class="es-infoblock esd-block-text es-m-txt-c" align="left">
-                                                                <p>Put your preheader text here</p>
+                                                                <p></p>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -65,7 +65,7 @@
                                                         <tbody>
                                                         <tr>
                                                             <td class="es-infoblock esd-block-text es-m-txt-c" align="right">
-                                                                <p><a href="http://#" target="_blank">View in browser</a></p>
+                                                                <p><a href="https://em.milanodoors.online/mail" target="_blank">View in browser</a></p>
                                                             </td>
                                                         </tr>
                                                         </tbody>
@@ -274,16 +274,16 @@
                                                                     <tbody>
                                                                     <tr>
                                                                         <td class="es-p10r" valign="top" align="center">
-                                                                            <a target="_blank" href=""><img title="Facebook" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/facebook-logo-black.png" alt="Fb" width="32"></a>
+                                                                            <a target="_blank" href="https://www.facebook.com/milanodoorsflorida"><img title="Facebook" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/facebook-logo-black.png" alt="Fb" width="32"></a>
                                                                         </td>
                                                                         <td class="es-p10r" valign="top" align="center">
-                                                                            <a target="_blank" href=""><img title="Twitter" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/twitter-logo-black.png" alt="Tw" width="32"></a>
+                                                                            <a target="_blank" href="https://twitter.com/milanodoors"><img title="Twitter" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/twitter-logo-black.png" alt="Tw" width="32"></a>
                                                                         </td>
                                                                         <td class="es-p10r" valign="top" align="center">
-                                                                            <a target="_blank" href=""><img title="Instagram" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/instagram-logo-black.png" alt="Inst" width="32"></a>
+                                                                            <a target="_blank" href="https://www.instagram.com/milanodoors/"><img title="Instagram" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/instagram-logo-black.png" alt="Inst" width="32"></a>
                                                                         </td>
                                                                         <td valign="top" align="center">
-                                                                            <a target="_blank" href=""><img title="Youtube" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/youtube-logo-black.png" alt="Yt" width="32"></a>
+                                                                            <a target="_blank" href="https://www.youtube.com/channel/UCeFZkJmnTSv2IeXD4wJqZSg"><img title="Youtube" src="https://tlr.stripocdn.email/content/assets/img/social-icons/logo-black/youtube-logo-black.png" alt="Yt" width="32"></a>
                                                                         </td>
                                                                     </tr>
                                                                     </tbody>
@@ -292,7 +292,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="esd-block-text" align="center">
-                                                                <p>You are receiving this email because you have visited our site or asked us about regular newsletter. If you wish to unsubscribe from our newsletter, click <a target="_blank" href="http://#">here</a>.</p>
+                                                                <p>You are receiving this email because you have visited our site or asked us about regular newsletter. If you wish to unsubscribe from our newsletter, click <a target="_blank" href="https://www.milanodoors.com">here</a>.</p>
                                                                 <p><br></p>
                                                             </td>
                                                         </tr>
