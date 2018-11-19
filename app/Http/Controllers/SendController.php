@@ -29,7 +29,8 @@ class SendController extends Controller
         $recipients_test = [
             'vlad.milanodoors@gmail.com',
             'vlad.bmx4@gmail.com',
-            'wczebotarew@gmail.com'
+            'wczebotarew@gmail.com',
+            'milanodoorsfinance@gmail.com'
         ];
 
         $recipients = [
