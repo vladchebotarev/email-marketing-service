@@ -66,7 +66,7 @@ return [
     /**
      * The SNS notification topic - if set, discard all notifications not in this topic.
      */
-    'sns-topic' => null,
+    'sns-topic' => 'Milano-SES-Bounces-Topic',
 
     /**
      * Determines whether or not the body of the email is logged in the sent_emails table
