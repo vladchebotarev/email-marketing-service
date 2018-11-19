@@ -29,7 +29,7 @@ class MilanoMailCampaign extends Mailable
     public function build()
     {
         return $this
-            ->subject('Milanodoors Sneak peek of our 2019 European collection')
+            ->subject('MilanoDoors: Sneak Peek of our 2019 European Collection. Exterior, Interior, Closet/Sliding Doors')
             ->view('emails.milano-mail-campaign');
     }
 }
