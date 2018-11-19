@@ -536,7 +536,7 @@ class SendController extends Controller
             'eanderson@brookstone.com',
         ];
 
-        foreach ($recipients_test as $recipient){
+        foreach ($recipients as $recipient){
             Mail::to($recipient)
                 ->queue(new MilanoMailCampaign());
         }
