@@ -20,6 +20,7 @@
     <!-- Custom Styles-->
     <link href="{{ asset('assets/css/custom-styles.css') }}" rel="stylesheet"/>
     <!-- Loader-->
+    <link href="{{ asset('assets/css/dimmer.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/css/loader.min.css') }}" rel="stylesheet"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
@@ -93,8 +94,8 @@
     <!-- /. NAV SIDE  -->
 
     @yield('page')
-    <div class="ui active page dimmer" id="dimmer">
-        <div class="ui loader"></div>
+    <div class="ui active page dimmer" id="dimmer" style="display: none;">
+        <div class="ui big text loader">Loading</div>
     </div>
 </div>
 <!-- /. WRAPPER  -->
@@ -128,7 +129,11 @@
     $(document).ready(function () {
         $('#dataTables-example').dataTable();
     });
+
+
 </script>
+
+
 
 <!-- Custom Js -->
 <script src="{{ asset('assets/js/custom-scripts.js') }}"></script>
