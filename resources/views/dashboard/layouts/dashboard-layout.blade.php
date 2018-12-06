@@ -23,7 +23,7 @@
     <link href="{{ asset('assets/css/dimmer.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/css/loader.min.css') }}" rel="stylesheet"/>
     <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="{{ asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
 
 </head>
