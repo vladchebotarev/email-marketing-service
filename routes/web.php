@@ -25,4 +25,18 @@ Route::get('/mail', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'web']], function() {
+    Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::post('profile/password', 'ProfileController@changePassword')->name('profile.password');
+
+    Route::get('/campaigns', 'CampaignsController@index')->name('campaigns');
+    Route::get('/subscribers', 'SubscribersController@index')->name('subscribers');
+    Route::get('/templates', 'TemplatesController@index')->name('templates');
+    Route::get('/schedules', 'SchedulesController@index')->name('schedules');
+    Route::get('/faq', function () {
+        return view('dashboard.faq');
+    });
+});
+
