@@ -31,8 +31,18 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'web']], functi
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::post('profile/password', 'ProfileController@changePassword')->name('profile.password');
 
-    Route::get('/campaigns', 'CampaignsController@index')->name('campaigns');
-    Route::get('/subscribers', 'SubscribersController@index')->name('subscribers');
+    Route::prefix('/campaigns')->group(function() {
+        Route::get('/', 'CampaignsController@index')->name('campaigns');
+        Route::get('/send-campaign', 'CampaignsController@sendCampaignShow');
+        Route::post('/send-campaign', 'CampaignsController@sendCampaign')->name('campaigns.send');
+    });
+
+    Route::prefix('/subscribers')->group(function() {
+        Route::get('/', 'SubscribersController@index')->name('subscribers');
+        Route::get('/create-list', 'SubscribersController@createListShow');
+        Route::post('/create-list', 'SubscribersController@createList')->name('subscribers.create_list');
+    });
+
     Route::get('/templates', 'TemplatesController@index')->name('templates');
     Route::get('/schedules', 'SchedulesController@index')->name('schedules');
     Route::get('/faq', function () {

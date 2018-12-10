@@ -6580,7 +6580,6 @@ select {
   height: 3rem;
   line-height: 3rem;
   width: 100%;
-  font-size: 1rem;
   margin: 0 0 20px 0;
   padding: 0;
   display: block;
@@ -6685,8 +6684,6 @@ select:disabled {
 
 .file-field .btn, .file-field .btn-large {
   float: left;
-  height: 3rem;
-  line-height: 3rem;
 }
 
 .file-field span {

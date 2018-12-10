@@ -621,7 +621,7 @@ font-size: 19px;
   margin: 14px;
 }
 }
-.dropdown-content{
+.dropdown-content-navbar{
     min-width: 165px !important;
     left: -38px !important;
     top: 60px !important;
@@ -754,4 +754,12 @@ padding: 0 15px 0px 15px;
 
 .dataTables_paginate{
     float: right;
+}
+
+.create-button-right{
+    float: right;
+}
+
+.pr-0{
+    padding-right: 0 !important;
 }

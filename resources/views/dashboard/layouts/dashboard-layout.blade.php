@@ -20,8 +20,12 @@
     <!-- Custom Styles-->
     <link href="{{ asset('assets/css/custom-styles.css') }}" rel="stylesheet"/>
     <!-- Loader-->
-    <link href="{{ asset('assets/css/dimmer.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('assets/css/loader.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/semantic-ui/css/dimmer.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('assets/semantic-ui/css/loader.min.css') }}" rel="stylesheet"/>
+
+    <!-- Modal-->
+    <link href="{{ asset('assets/semantic-ui/css/modal.min.css') }}" rel="stylesheet"/>
+
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="{{ asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
@@ -51,7 +55,7 @@
         </ul>
     </nav>
     <!-- Dropdown Structure -->
-    <ul id="dropdown1" class="dropdown-content">
+    <ul id="dropdown1" class="dropdown-content dropdown-content-navbar">
         <li><a href="{{ url('dashboard/profile') }}"><i class="fa fa-user fa-fw"></i> My Profile</a>
         </li>
         <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -101,6 +105,7 @@
 <!-- /. WRAPPER  -->
 
 
+
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="{{ asset('assets/js/jquery-1.10.2.js') }}"></script>
@@ -125,14 +130,17 @@
 <!-- DATA TABLE SCRIPTS -->
 <script src="{{ asset('assets/js/dataTables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('assets/js/dataTables/dataTables.bootstrap.js') }}"></script>
+
 <script>
     $(document).ready(function () {
-        $('#dataTables-example').dataTable();
+        $('#dataTable-subscribers').dataTable({
+            "columnDefs": [
+                { "searchable": false, "targets": 4 }
+            ],
+            "order": [[ 3, "desc" ]]
+        } );
     });
-
-
 </script>
-
 
 
 <!-- Custom Js -->

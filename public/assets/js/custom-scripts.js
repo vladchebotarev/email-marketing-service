@@ -232,5 +232,7 @@
         $("#dimmer").show();
         this.submit();
     });
-	
+
+    $('select').material_select();
+
 }(jQuery));

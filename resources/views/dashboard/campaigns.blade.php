@@ -3,14 +3,42 @@
 @section('page')
     <div id="page-wrapper">
         <div class="header">
-            <h1 class="page-header">
-                Campaigns
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
-                <li class="active">Campaigns</li>
-            </ol>
-
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <h1 class="page-header">
+                        Campaigns
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="{{ url('dashboard') }}">Dashboard</a></li>
+                        <li class="active">Campaigns</li>
+                    </ol>
+                </div>
+                @if ($errors->any())
+                    <div class="col-lg-6 col-md-6">
+                        <div class="page-alert">
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <strong>Error!</strong>
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="col-lg-6 col-md-6">
+                        <div class="page-alert">
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <strong>Success!</strong> {{ session('success') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            </div>
         </div>
         <div id="page-inner">
 
@@ -20,6 +48,8 @@
                     <div class="card">
                         <div class="card-action">
                             Campaigns
+                            <a class="btn create-button-right" href="{{ url('dashboard/campaigns/send-campaign') }}">Send new
+                                campaign <i class="fa fa-plus" aria-hidden="true"></i></a>
                         </div>
                         <div class="card-content">
                             <div class="table-responsive">

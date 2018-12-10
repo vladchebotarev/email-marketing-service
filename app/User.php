@@ -27,4 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the list of subscribers for the user.
+     */
+    public function subscribersLists()
+    {
+        return $this->hasMany('App\SubscribersList');
+    }
 }
