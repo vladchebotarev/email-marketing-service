@@ -71,7 +71,7 @@
                                                 <input class="file-path validate" type="text">
                                             </div>
                                         </div>
-                                        <small>Import subscribers from .xlsx file. Example feed <a href="">Subscribers
+                                        <small>Import subscribers from .xlsx file. Example feed <a href="{{ asset('downloads/subscribers-feed-example.xlsx') }}">Subscribers
                                                 feed example.xlsx</a></small>
                                         <br>
                                         <br>

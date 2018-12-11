@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SendCampaignRequest;
+use App\Jobs\SendCampaignJob;
 use App\Mail\MilanoMailCampaign;
 use App\Subscriber;
 use App\SubscribersList;
@@ -63,20 +64,19 @@ class CampaignsController extends Controller
      */
     public function sendCampaign(SendCampaignRequest $request)
     {
-        try {
-            $subscribers = Subscriber::where('list_id', $request->get('subscribers_list'))
-                ->select('email')
-                ->get();
-
-            foreach ($subscribers as $subscriber){
-                Mail::to($subscriber->email)
-                    ->queue(new MilanoMailCampaign());
+        if($subscribers = Subscriber::where('list_id', $request->get('subscribers_list'))->count()){
+            try {
+                SendCampaignJob::dispatch($request->get('subscribers_list'));
+            } catch (\Exception $e) {
+                return Redirect::back()
+                    ->with('SaveError', 'An error occurred while sending the campaign. Contact the administrator!');
             }
-        } catch (\Exception $e) {
+
+            return redirect('dashboard/campaigns')->with('success', 'The campaign was successfully sent!');
+        } else {
             return Redirect::back()
-                ->with('SaveError', 'An error occurred while sending the campaign. Contact the administrator!');
+                ->with('SaveError', 'An error occurred while sending the campaign. This list does not exist!');
         }
 
-        return redirect('dashboard/campaigns')->with('success', 'The campaign was successfully sent!');
     }
 }
