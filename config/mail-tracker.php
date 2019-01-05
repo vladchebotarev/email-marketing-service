@@ -71,6 +71,6 @@ return [
     /**
      * Determines whether or not the body of the email is logged in the sent_emails table
      */
-    'log-content' => true
+    'log-content' => false
 
 ];

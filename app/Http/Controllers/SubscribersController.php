@@ -45,6 +45,36 @@ class SubscribersController extends Controller
     }
 
     /**
+     * Show the application dashboard subscribers.
+     *
+     * @param $list_id
+     * @return \Illuminate\Http\Response
+     */
+    public function specificList($list_id)
+    {
+        $list = SubscribersList::find($list_id);
+        if (!$list) {
+            abort(404);
+        }
+
+        $subscribers = DB::table('subscribers')
+            ->where('list_id', $list_id)
+            ->select('email', 'first_name', 'last_name', 'company', 'created_at')
+            ->get();
+
+        $number_of_subscribers = $subscribers->count();
+
+        $data = array(
+            'list' => $list,
+            'number_of_subscribers' => $number_of_subscribers,
+            'subscribers' => $subscribers,
+        );
+
+        return view('dashboard.subscribers-specific-list', $data);
+    }
+
+
+    /**
      * Show the page of new list creation.
      *
      * @return \Illuminate\Http\Response
@@ -95,6 +125,4 @@ class SubscribersController extends Controller
 
         return redirect('dashboard/subscribers')->with('success', 'The list was successfully created!');
     }
-
-
 }

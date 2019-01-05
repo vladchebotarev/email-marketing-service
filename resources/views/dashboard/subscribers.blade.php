@@ -70,9 +70,11 @@
                                             <td>{{ $list->description }}</td>
                                             <td>{{ $list->subscribers }}</td>
                                             <td>{{ $list->created_at }}</td>
-                                            <td class="center"><a href="" class="tooltipped" data-position="left"
-                                                                  data-tooltip="Details"><i class="fa fa-search fa-lg"
-                                                                                            aria-hidden="true"></i></a>
+                                            <td class="center"><a
+                                                    href="{{ url('dashboard/subscribers/list/' . $list->id) }}"
+                                                    class="tooltipped" data-position="left"
+                                                    data-tooltip="Details"><i class="fa fa-search fa-lg"
+                                                                              aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

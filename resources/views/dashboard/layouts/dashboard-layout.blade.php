@@ -11,24 +11,25 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/materialize/css/materialize.min.css') }}" media="screen,projection"/>
-    <!-- Bootstrap Styles-->
+    @if(Request::is('dashboard/campaigns/send-campaign'))
+        <link rel="stylesheet" href="{{ asset('assets/materialize/css/materialize.clockpicker.css') }}"/>
+@endif
+<!-- Bootstrap Styles-->
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet"/>
     <!-- FontAwesome Styles-->
     <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet"/>
+@if(Request::is('dashboard'))
     <!-- Morris Chart Styles-->
-    <link href="{{ asset('assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet"/>
-    <!-- Custom Styles-->
+        <link href="{{ asset('assets/js/morris/morris-0.4.3.min.css') }}" rel="stylesheet"/>
+@endif
+<!-- Custom Styles-->
     <link href="{{ asset('assets/css/custom-styles.css') }}" rel="stylesheet"/>
     <!-- Loader-->
     <link href="{{ asset('assets/semantic-ui/css/dimmer.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('assets/semantic-ui/css/loader.min.css') }}" rel="stylesheet"/>
 
-    <!-- Modal-->
-    <link href="{{ asset('assets/semantic-ui/css/modal.min.css') }}" rel="stylesheet"/>
-
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
-    <link rel="stylesheet" href="{{ asset('assets/js/Lightweight-Chart/cssCharts.css') }}">
 
 </head>
 <body>
@@ -42,7 +43,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand waves-effect waves-dark" href="{{ url('dashboard') }}"><i class="large material-icons">track_changes</i>
+            <a class="navbar-brand waves-effect waves-dark" href="{{ url('dashboard') }}"><i
+                    class="large material-icons">track_changes</i>
                 <strong>milano mailing</strong></a>
 
             <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
@@ -58,7 +60,8 @@
     <ul id="dropdown1" class="dropdown-content dropdown-content-navbar">
         <li><a href="{{ url('dashboard/profile') }}"><i class="fa fa-user fa-fw"></i> My Profile</a>
         </li>
-        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <li><a href="{{ route('logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>
     </ul>
@@ -71,25 +74,36 @@
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="@if(Route::current()->getName() == 'dashboard') active-menu @endif waves-effect waves-dark" href="{{ route('dashboard') }}"><i class="fa fa-desktop"></i>
+                    <a class="@if(Route::current()->getName() == 'dashboard') active-menu @endif waves-effect waves-dark"
+                       href="{{ route('dashboard') }}"><i class="fa fa-desktop"></i>
                         Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{ url('dashboard/campaigns') }}" class="@if(Route::current()->getName() == 'campaigns') active-menu @endif waves-effect waves-dark"><i class="fa fa-envelope"></i> Campaigns</a>
+                    <a href="{{ url('dashboard/campaigns') }}"
+                       class="@if(Route::current()->getName() == 'campaigns') active-menu @endif waves-effect waves-dark"><i
+                            class="fa fa-envelope"></i> Campaigns</a>
                 </li>
                 <li>
-                    <a href="{{ url('dashboard/subscribers') }}" class="@if(Route::current()->getName() == 'subscribers') active-menu @endif waves-effect waves-dark"><i class="fa fa-users"></i> Subscribers</a>
+                    <a href="{{ url('dashboard/subscribers') }}"
+                       class="@if(Route::current()->getName() == 'subscribers') active-menu @endif waves-effect waves-dark"><i
+                            class="fa fa-users"></i> Subscribers</a>
                 </li>
                 <li>
-                    <a href="{{ url('dashboard/templates') }}" class="@if(Route::current()->getName() == 'templates') active-menu @endif waves-effect waves-dark"><i class="fa fa-pencil-square-o"></i> Templates</a>
+                    <a href="{{ url('dashboard/templates') }}"
+                       class="@if(Route::current()->getName() == 'templates') active-menu @endif waves-effect waves-dark"><i
+                            class="fa fa-pencil-square-o"></i> Templates</a>
                 </li>
 
-                <li>
-                    <a href="{{ url('dashboard/schedules') }}" class="@if(Route::current()->getName() == 'schedules') active-menu @endif waves-effect waves-dark"><i class="fa fa-calendar"></i> Schedules</a>
+                {{--<li>
+                    <a href="{{ url('dashboard/schedules') }}"
+                       class="@if(Route::current()->getName() == 'schedules') active-menu @endif waves-effect waves-dark"><i
+                            class="fa fa-calendar"></i> Schedules</a>
                 </li>
                 <li>
-                    <a href="{{ url('dashboard/faq') }}" class="@if(Route::current()->getName() == 'faq') active-menu @endif waves-effect waves-dark"><i class="fa fa-question-circle"></i> FAQ</a>
-                </li>
+                    <a href="{{ url('dashboard/faq') }}"
+                       class="@if(Route::current()->getName() == 'faq') active-menu @endif waves-effect waves-dark"><i
+                            class="fa fa-question-circle"></i> FAQ</a>
+                </li>--}}
             </ul>
 
         </div>
@@ -105,27 +119,24 @@
 <!-- /. WRAPPER  -->
 
 
-
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="{{ asset('assets/js/jquery-1.10.2.js') }}"></script>
 
-<!-- Bootstrap Js -->
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+{{--<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>--}}
 
 <script src="{{ asset('assets/materialize/js/materialize.min.js') }}"></script>
+@if(Request::is('dashboard/campaigns/send-campaign'))
+    <script src="{{ asset('assets/materialize/js/materialize.clockpicker.js') }}"></script>
+@endif
+{{--<!-- Metis Menu Js -->
+<script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>--}}
 
-<!-- Metis Menu Js -->
-<script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
-<!-- Morris Chart Js -->
-<script src="{{ asset('assets/js/morris/raphael-2.1.0.min.js') }}"></script>
-<script src="{{ asset('assets/js/morris/morris.js') }}"></script>
-
-
-<script src="{{ asset('assets/js/easypiechart.js') }}"></script>
-<script src="{{ asset('assets/js/easypiechart-data.js') }}"></script>
-
-<script src="{{ asset('assets/js/Lightweight-Chart/jquery.chart.js') }}"></script>
+@if(Request::is('dashboard'))
+    <!-- Morris Chart Js -->
+    <script src="{{ asset('assets/js/morris/raphael-2.1.0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/morris/morris.js') }}"></script>
+@endif
 
 <!-- DATA TABLE SCRIPTS -->
 <script src="{{ asset('assets/js/dataTables/jquery.dataTables.js') }}"></script>
@@ -133,17 +144,73 @@
 
 <script>
     $(document).ready(function () {
+        $('#dataTable-simple').dataTable();
+
         $('#dataTable-subscribers').dataTable({
             "columnDefs": [
-                { "searchable": false, "targets": 4 }
+                {"searchable": false, "targets": 4}
             ],
-            "order": [[ 3, "desc" ]]
-        } );
+            "order": [[3, "desc"]]
+        });
+
+        $('#dataTable-campaigns').dataTable({
+            "columnDefs": [
+                {"searchable": false, "targets": 5}
+            ],
+            "order": [[4, "desc"]]
+        });
     });
 </script>
 
+@if(Request::is('dashboard/campaigns/send-campaign'))
+    <script>
+        $(document).ready(function () {
+            $('input.subject-autocomplete').autocomplete({
+                data: {
+                    "MilanoDoors: Sneak Peek of our 2019 European Collection. Exterior, Interior, Closet/Sliding Doors": null,
+                    "Milcasa: Sneak Peek of our 2019 European Collection. Exterior, Interior, Closet/Sliding Doors": null,
+                },
+            });
+            $('input.from-name-autocomplete').autocomplete({
+                data: {
+                    "Milanodoors": null,
+                    "Milcasa": null,
+                },
+            });
+        });
+
+        $(document).ready(function () {
+            var date = new Date();
+            $('.datepicker').pickadate({
+                format: 'yyyy-mm-dd',
+                min: true, //min today
+                clear: '',
+                close: 'OK',
+            });
+        });
+
+        $('.timepicker').pickatime({
+            default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+            fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+            twelvehour: false, // Use AM/PM or 24-hour format
+            donetext: 'OK', // text for done-button
+            cleartext: 'Clear', // text for clear-button
+            canceltext: 'Cancel', // Text for cancel-button,
+            container: undefined, // ex. 'body' will append picker to body
+            autoclose: true,
+        });
+
+        $('#schedule-switch').change(function () {
+            $('.campaign-schedule').toggle();
+        });
+    </script>
+@endif
 
 <!-- Custom Js -->
-<script src="{{ asset('assets/js/custom-scripts.js') }}"></script>
+@if(Request::is('dashboard'))
+    <script src="{{ asset('assets/js/custom-scripts-dashboard.js') }}"></script>
+@else
+    <script src="{{ asset('assets/js/custom-scripts.js') }}"></script>
+@endif
 </body>
 </html>

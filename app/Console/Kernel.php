@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use App\Jobs\SendCampaignJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\DB;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +26,26 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->call(function () {
+            $campaigns = DB::table('campaigns')
+                ->where([
+                    ['status', '=', 'Scheduled'],
+                    ['schedule_date', '<=', date("Y-m-d G:i:s")],
+                ])
+                ->select('id')
+                ->orderBy('schedule_date')
+                ->get();
+
+            foreach ($campaigns as $campaign) {
+                SendCampaignJob::dispatch($campaign->id)
+                    ->onConnection('sqs')
+                    ->onQueue('MilanoCampaignQueue');
+
+                DB::table('campaigns')
+                    ->where('id', $campaign->id)
+                    ->update(['status' => 'Sending']);
+            }
+        })->everyThirtyMinutes();
     }
 
     /**

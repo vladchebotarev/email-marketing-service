@@ -35,4 +35,15 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\SubscribersList');
     }
+
+    /**
+     * Route notifications for the Slack channel.
+     *
+     * @param  \Illuminate\Notifications\Notification  $notification
+     * @return string
+     */
+    public function routeNotificationForSlack($notification)
+    {
+        return env('SLACK_WEBHOOK_URL');
+    }
 }

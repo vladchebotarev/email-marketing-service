@@ -46,7 +46,7 @@
                             <div class="row">
                                 <form method="POST" enctype="multipart/form-data"
                                       action="{{ route('subscribers.create_list') }}"
-                                      class="col s6">
+                                      class="col s12 m12 l6">
                                     @csrf
                                     <div class="input-field col s12">
                                         <input id="listName" type="text"

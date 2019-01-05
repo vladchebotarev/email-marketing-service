@@ -9,7 +9,7 @@
     var mainApp = {
 
         initFunction: function () {
-            /*MENU 
+            /*MENU
             ------------------------------------*/
             //$('#main-menu').metisMenu();
 
@@ -19,6 +19,43 @@
                 } else {
                     $('div.sidebar-collapse').removeClass('collapse')
                 }
+            });
+
+            var sent_open_bar_chart = JSON.parse(document.getElementById('sent-open-bar-chart').value);
+
+            /* MORRIS BAR CHART
+			-----------------------------------------*/
+            Morris.Bar({
+                element: 'morris-bar-chart',
+                data: sent_open_bar_chart,
+                xkey: 'period',
+                ykeys: ['emails', 'opens'],
+                labels: ['Emails', 'Opens'],
+                barColors: [
+                    '#e96562', '#414e63',
+                    '#A8E9DC'
+                ],
+                hideHover: 'auto',
+                resize: true
+            });
+
+            var open_click_line_chart = JSON.parse(document.getElementById('open-click-line-chart').value);
+
+            /* MORRIS LINE CHART
+			----------------------------------------*/
+            Morris.Line({
+                element: 'morris-line-chart',
+                data: open_click_line_chart,
+                xkey: 'period',
+                ykeys: ['opens', 'clicks'],
+                labels: ['Opens', 'Clicks'],
+                fillOpacity: 0.6,
+                hideHover: 'auto',
+                behaveLikeLine: true,
+                resize: false,
+                pointFillColors: ['#ffffff'],
+                pointStrokeColors: ['black'],
+                lineColors: ['gray', '#414e63'],
             });
         },
 

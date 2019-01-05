@@ -6121,7 +6121,7 @@ textarea.materialize-textarea {
   margin-top: -15px;
   display: block;
   opacity: 1;
-  position: static;
+  position: absolute;
 }
 
 .autocomplete-content li .highlight {
@@ -6581,7 +6581,7 @@ select {
   line-height: 3rem;
   width: 100%;
   margin: 0 0 20px 0;
-  padding: 0;
+  padding: 4px;
   display: block;
 }
 
@@ -6604,7 +6604,7 @@ select {
 .select-wrapper + label {
   position: absolute;
   top: -14px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 select:disabled {
@@ -8079,7 +8079,7 @@ input[type=range]:focus::-ms-fill-upper {
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed;
-  font-size: 1rem;
+  font-size: 1.6rem;
   width: 100%;
   margin-top: .75em;
   margin-bottom: .5em;
@@ -8100,7 +8100,7 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__weekday {
   width: 14.285714286%;
   font-size: .75em;
-  padding-bottom: .25em;
+  padding: 15px 5px;
   color: #999999;
   font-weight: 500;
   /* Increase the spacing a tad */
@@ -8297,7 +8297,7 @@ input[type=range]:focus::-ms-fill-upper {
   padding: 10px;
   font-weight: 200;
   letter-spacing: .5;
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 15px;
 }
 
@@ -8350,7 +8350,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__weekday {
-  font-size: .9rem;
+  font-size: 1.3rem;
 }
 
 .picker__day--selected,
@@ -8375,7 +8375,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__close, .picker__today {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   padding: 0 1rem;
   color: #26a69a;
 }
